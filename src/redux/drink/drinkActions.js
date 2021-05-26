@@ -1,3 +1,8 @@
+// Author: Yuqi Wu
+/*
+    File for all the actions and fetch
+*/
+
 import axios from 'axios'
 import { 
     FETCH_DRINKS_FAILURE, 
@@ -28,12 +33,16 @@ export const fetchDrinksFailure = error => {
 
 export const fetchDrinks = () => {
     return (dispatch) => {
+        // first thing to do: request
         dispatch(fetchDrinksRequest)
         axios.get('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita')
-            .then(response => {
+            .then(response => { // if do get response
                 const results = response.data.drinks
                 let drinks = []
+                // go through each individual drink,
+                // make sure they are not null
                 results.forEach(element => {
+                    // utilizing the Drink model
                     let drink = new Drink(element)
                     drink.strInstructions = 
                         drink.strInstructions.filter(cur => {
@@ -49,9 +58,10 @@ export const fetchDrinks = () => {
                         })
                     drinks.push(drink)
                 });
+                // here means everything is done correctly, dispatch
                 dispatch(fetchDrinksSuccess(drinks))
             })
-            .catch(error => {
+            .catch(error => { // else catching the error
                 const errorMsg = error.message
                 dispatch(fetchDrinksFailure(errorMsg))
             })

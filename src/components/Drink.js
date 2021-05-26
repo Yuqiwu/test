@@ -1,3 +1,6 @@
+// Author: Yuqi Wu
+
+// just a model class for storing purpose
 export default class Drink {
     constructor(drinkData) {
         this.idDrink = drinkData.idDrink
@@ -9,7 +12,7 @@ export default class Drink {
         this.strIBA = drinkData.strIBA
         this.strAlcoholic = drinkData.strAlcoholic
         this.strGlass = drinkData.strGlass
-        this.strInstructions = [
+        this.strInstructions = [ // merges the instructions together
             drinkData.strInstructions,
             drinkData.strInstructionsES,
             drinkData.strInstructionsDE,
@@ -17,7 +20,7 @@ export default class Drink {
             drinkData['strInstructionsZH-HANT'],
         ]
         this.strDrinkThumb = drinkData.strDrinkThumb
-        this.strIngredients = [
+        this.strIngredients = [ // merges the ingredients together
             drinkData.strIngredient1,
             drinkData.strIngredient2,
             drinkData.strIngredient3,
@@ -34,7 +37,7 @@ export default class Drink {
             drinkData.strIngredient14,
             drinkData.strIngredient15
         ]
-        this.strMeasures = [
+        this.strMeasures = [ // merges the measurements together
             drinkData.strMeasure1,
             drinkData.strMeasure2,
             drinkData.strMeasure3,

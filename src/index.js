@@ -1,3 +1,8 @@
+// Author: Yuqi Wu
+/*
+  The actual render part that display the webpage.
+*/
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';

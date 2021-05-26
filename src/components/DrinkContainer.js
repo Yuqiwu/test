@@ -1,28 +1,38 @@
+// Author: Yuqi Wu
+/*
+    Wrapper for all the drink files and store. Perform the
+    actual organization and display of the webpage.
+*/
+
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { fetchDrinks } from  '../redux/drink/drinkActions'
 import drinks from '../redux/drink/drinkReducer'
 
+/*
+    Parameters: drinkData - data from the api
+                fetchDrinks() - used to fetch data from api
+*/
 function DrinkContainer({ drinkData, fetchDrinks }) {
     useEffect(() => {
         fetchDrinks()
     }, []) // need an empty dependency array, so that fetchDrinks()
            // is dispatched only once
-    console.log(drinkData)
+    // console.log(drinkData) // for debugging purpose
     return drinkData.loading ? (
-        <h2>Loading</h2>
+        <h2>Loading</h2> // loading is true, so display loading screen
     ) 
     : drinkData.error ? (
-        <h2>{drinkData.error}</h2>
+        <h2>{drinkData.error}</h2> // there was an error during the fetch
     )
-    : (
+    : ( // no issue, display the data
         <div>
             <h2>Drink List</h2>
             <div>
                 {
-                    drinkData && 
-                    drinkData.drinks && 
-                    drinkData.drinks.map(drink => 
+                    drinkData && // make sure the data exist
+                    drinkData.drinks &&  // make sure the drink array exist
+                    drinkData.drinks.map(drink => // go through each individual drink
                         <div>
                             <h2>{drink.strDrink}</h2>
                             <ol>

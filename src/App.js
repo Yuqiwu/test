@@ -1,4 +1,9 @@
-import { Provider } from 'react-redux'
+// Author: Yuqi Wu
+/*
+  This file can be ignored. After with the help from
+  Justin, I moved everything to index.js
+*/
+
 import './App.css';
 import PostList, { Drink } from './components/PostList';
 import DrinkContainer from './components/DrinkContainer'

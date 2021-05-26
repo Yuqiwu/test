@@ -1,3 +1,10 @@
+// Author
+/*
+    Would contains more functionalities if this is not just
+    a webpage for display purpose only. Now it only handles
+    the request and its outcome, either success or failure.
+*/
+
 import { 
     FETCH_DRINKS_FAILURE, 
     FETCH_DRINKS_REQUEST, 

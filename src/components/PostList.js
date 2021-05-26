@@ -1,3 +1,9 @@
+// Author: Yuqi Wu
+/*
+    This file is created for learning purpose. Did not utilized
+    Redux inside this file, so can be discard for this assignment.
+*/
+
 import React, { Component } from 'react'
 import axios from 'axios'
 import { createStore } from 'redux'
@@ -40,7 +46,7 @@ class PostList extends Component {
                     posts.map(post => <div key={post.idDrink}>
                         <h2>{post.strDrink}</h2>
                         <ol>
-                            {
+                            {   // go through the dictionary like an array
                                 Object.keys(post).map((key, index) => (
                                     <li> {key} : {post[key]} </li>
                                 ))
