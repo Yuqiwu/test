@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { createStore } from 'redux'
 
 class PostList extends Component {
     constructor(props) {
@@ -19,6 +20,7 @@ class PostList extends Component {
                 console.log(response)
                 // save the drinks into state
                 this.setState({posts: response.data.drinks})
+                const store = createStore()
             })
             .catch(error => {
                 console.log(error)
@@ -57,23 +59,6 @@ class PostList extends Component {
                 }
             </div>
         )
-    }
-}
-
-export class Drink {
-    constructor(drinkData) {
-        this.idDrink = drinkData.idDrink
-        this.strDrink = drinkData.strDrink
-        this.strDrinkAlternate = drinkData.strDrinkAlternate
-        this.strTags = drinkData.strTags
-        this.strVideo = drinkData.strVideo
-        this.strCategory = drinkData.strCategory
-        this.strIBA = drinkData.strIBA
-        this.strAlcoholic = drinkData.strAlcoholic
-        this.strGlass = drinkData.strGlass
-        this.strInstructions = drinkData.strInstructions
-        this.strInstructionsES = drinkData.strInstructionsES
-        this.strInstructionsDE = drinkData.strInstructionsDE
     }
 }
 
