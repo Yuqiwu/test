@@ -25,12 +25,27 @@ function DrinkContainer({ drinkData, fetchDrinks }) {
                     drinkData.drinks.map(drink => 
                         <div>
                             <h2>{drink.strDrink}</h2>
-                            <ul>
+                            <ol>
                                 {drink.strDrinkAlternate ?
                                     <li>Alternate Name: {drink.strDrinkAlternate}</li>
                                     : ''}
                                 {drink.strTags ?
                                     <li>Tags: {drink.strTags}</li>
+                                    : ''}
+                                {drink.strVideo ?
+                                    <li>Video link: {drink.strVideo}</li>
+                                    : ''}
+                                {drink.strCategory ?
+                                    <li>Category: {drink.strCategory}</li>
+                                    : ''}
+                                {drink.strIBA ?
+                                    <li>IBA: {drink.strIBA}</li>
+                                    : ''}
+                                {drink.strAlcoholic ?
+                                    <li>Alcoholic: {drink.strAlcoholic}</li>
+                                    : ''}
+                                {drink.strGlass ?
+                                    <li>Glass: {drink.strGlass}</li>
                                     : ''}
                                 {drink.strInstructions &&
                                  drink.strInstructions.length > 0 ?
@@ -39,14 +54,32 @@ function DrinkContainer({ drinkData, fetchDrinks }) {
                                     })
                                     : ''}
                                 {drink.strDrinkThumb &&
-                                drink.strImageAttribution ?
+                                drink.strDrink ?
                                     <img src={drink.strDrinkThumb}
-                                        alt={drink.strImageAttribution}
+                                        alt={drink.strDrink}
                                         style={{maxWidth:250}}></img>
+                                    : ''}
+                                {drink.strIngredients &&
+                                drink.strIngredients.length > 0 ?
+                                    drink.strIngredients.map(ingredient => {
+                                        return <li>{ingredient}</li>
+                                    })
+                                    : ''}
+                                {drink.strMeasures &&
+                                drink.strMeasures.length > 0 ?
+                                    drink.strMeasures.map(measure => {
+                                        return <li>{measure}</li>
+                                    })
+                                    : ''}
+                                {drink.strCreativeCommonsConfirmed ? 
+                                    <li>Creative Commons Confirmed: {drink.strCreativeCommonsConfirmed}</li>
+                                    : ''}
+                                {drink.dateModified ?
+                                    <li>Date modified: {drink.dateModified}</li>
                                     : ''}
                                 
 
-                            </ul>
+                            </ol>
                         </div>
                     )
                 }
